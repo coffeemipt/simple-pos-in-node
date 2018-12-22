@@ -10,7 +10,7 @@ module.exports = app;
 
 // Creates  Database
 var inventoryDB = new Datastore({
-  filename: "./server/databases/inventory.db",
+  filename: "./server/databases/menu.db",
   autoload: true
 });
 

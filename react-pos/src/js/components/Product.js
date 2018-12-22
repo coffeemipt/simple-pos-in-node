@@ -58,7 +58,7 @@ class Product extends Component {
         <td>
           <a href="">{name}</a>
         </td>
-        <td>${price}</td><td>{quantity}</td>
+        <td>₽{price}</td><td>{quantity}</td>
         <td>
           <a
             className="btn btn-info"

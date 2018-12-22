@@ -180,7 +180,7 @@ class Pos extends Component {
             <span className="lead">Total</span>
             <br />
             <span className="text-success checkout-total-price">
-              ${this.state.total}
+              ₽{this.state.total}
               <span />
             </span>
             <div>
@@ -223,7 +223,7 @@ class Pos extends Component {
                       >
                         <div className="form-group">
                           <div className="input-group">
-                            <div className="input-group-addon">$</div>
+                            <div className="input-group-addon">₽</div>
                             <input
                               type="number"
                               id="checkoutPaymentAmount"
@@ -303,7 +303,7 @@ class Pos extends Component {
                             Price
                           </label>
                           <div className="col-md-8 input-group">
-                            <div className="input-group-addon">$</div>
+                            <div className="input-group-addon">₽</div>
 
                             <input
                               type="number"

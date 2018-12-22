@@ -14,7 +14,7 @@ class LiveTransactions extends Component {
           <span>{price}</span>
           <br />
           <small className="small-text">
-            <em>(${price} each)</em>
+            <em>(₽{price} each)</em>
           </small>
         </td>
       </tr>

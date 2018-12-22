@@ -61,17 +61,17 @@ class CompleteTransactions extends Component {
                   <tr className="total">
                     <td />
                     <td>Total</td>
-                    <td> ${total} </td>
+                    <td> ₽{total} </td>
                   </tr>
                   <tr>
                     <td />
                     <td>Payment</td>
-                    <td> ${total} </td>
+                    <td> ₽{total} </td>
                   </tr>
                   <tr className="lead">
                     <td />
                     <td>Change</td>
-                    <td> ${0} </td>
+                    <td> ₽{0} </td>
                   </tr>
                 </tbody>
               </table>

@@ -47,7 +47,7 @@ class Checkout extends Component {
                     ng-className="{ 'has-error': checkoutForm.payment.$error.required }"
                   >
                     <div className="input-group">
-                      <div className="input-group-addon">$</div>
+                      <div className="input-group-addon">₽</div>
                       <input
                         type="number"
                         id="checkoutPaymentAmount"

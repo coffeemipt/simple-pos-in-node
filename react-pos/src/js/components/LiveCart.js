@@ -98,7 +98,7 @@ class LiveCart extends Component {
                   <span>Today's Sales</span>
                   <br />
                   <span className="text-success checkout-total-price">
-                    $0<span />
+                    ₽0<span />
                   </span>
                 </div>
 

@@ -11,7 +11,7 @@ class LivePos extends Component {
     return (
       <tr>
         <td className="col-md-2"> {name}</td>
-        <td className="col-md-1"> ${price}</td>
+        <td className="col-md-1"> ₽{price}</td>
         <td className="col-md-2">
           <button
             className="btn btn-sm pull-left"
@@ -31,7 +31,7 @@ class LivePos extends Component {
             <i className="glyphicon glyphicon-plus" />
           </button>
         </td>
-        <td className="col-md-2">$0.00</td>
+        <td className="col-md-2">₽0.00</td>
         <td className="col-md-2">{price}</td>
         <td className="col-md-2">
           <button
