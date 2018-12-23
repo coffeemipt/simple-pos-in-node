@@ -36,6 +36,7 @@ class LiveCart extends Component {
   }
   render() {
     var { transactions, liveTransactions } = this.state;
+    var totalRecentSales = transactions.reduce((sum, tx) => sum + tx.total, 0);
     var renderRecentTransactions = () => {
       if (transactions.length === 0) {
         return <tr><td>No recent transactions available</td></tr>;
@@ -98,7 +99,7 @@ class LiveCart extends Component {
                   <span>Today's Sales</span>
                   <br />
                   <span className="text-success checkout-total-price">
-                    $0<span />
+                    ${totalRecentSales || 0}
                   </span>
                 </div>
 
