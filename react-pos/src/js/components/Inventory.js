@@ -93,7 +93,10 @@ class Inventory extends Component {
         return <tr><td>No products</td></tr>;
       } else {
         return products.map((product, index) => (
-          <Product key={index} {...product} onEditProduct={this.handleEditProduct} />
+          <Product key={index} {...product}
+            isEditable={true}
+            isSelectable={false}
+            onEditProduct={this.handleEditProduct} />
         ));
       }
     };
