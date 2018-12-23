@@ -6,6 +6,7 @@ import axios from "axios";
 import moment from "moment";
 import { Modal, Button } from "react-bootstrap";
 import LivePos from "./LivePos";
+import ProductSelector from "./ProductSelector";
 import { HOST, SOCKET_HOST } from '../constants';
 
 let socket = io.connect(SOCKET_HOST);
@@ -55,6 +56,27 @@ class Pos extends Component {
 
     this.setState({ items, id });
   };
+
+  handleAddProduct = item => {
+    this.setState({ addItemModal: false });
+
+    const id = this.state.id + 1;
+
+    const { _id, name, price } = item;
+
+    const currentItem = {
+      id,
+      _id,
+      name,
+      price,
+      quantity: 1,
+    };
+
+    const items = [ ...this.state.items, currentItem ];
+
+    this.setState({ items, id });
+  };
+
   handleName = e => {
     this.setState({ name: e.target.value });
   };
@@ -280,48 +302,11 @@ class Pos extends Component {
                       <Modal.Title>Add item(Product)</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                      <form
-                        ref="form"
-                        onSubmit={this.handleSubmit}
-                        className="form-horizontal"
-                      >
-                        <div className="form-group">
-                          <label className="col-md-2 lead" htmlFor="name">
-                            Name
-                          </label>
-                          <div className="col-md-8 input-group">
-                            <input
-                              className="form-control"
-                              name="name"
-                              required
-                              onChange={this.handleName}
-                            />
-                          </div>
-                        </div>
-                        <div className="form-group">
-                          <label className="col-md-2 lead" htmlFor="price">
-                            Price
-                          </label>
-                          <div className="col-md-8 input-group">
-                            <div className="input-group-addon">$</div>
 
-                            <input
-                              type="number"
-                              step="any"
-                              min="0"
-                              onChange={this.handlePrice}
-                              className="form-control"
-                              name="price"
-                              required
-                            />
-                          </div>
-                        </div>
+                      <ProductSelector onSelect={this.handleAddProduct} />
 
-                        <p className="text-danger">Enter price for item.</p>
-                      </form>
                     </Modal.Body>
                     <Modal.Footer>
-                      <Button onClick={this.handleSubmit}>Add</Button>
                       <Button
                         onClick={() => this.setState({ addItemModal: false })}
                       >

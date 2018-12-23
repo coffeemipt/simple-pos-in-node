@@ -28,6 +28,18 @@ class Product extends Component {
   handleQuantity = e => {
     this.setState({ newQuantity: e.target.value });
   };
+  handleSelected = e => {
+    e.preventDefault();
+
+    const { name, price } = this.state;
+    const { _id } = this.props;
+
+    console.log("id", _id);
+
+    const product = { _id, name, price };
+
+    this.props.onSelectProduct(product);
+  };
   handleProduct = e => {
     e.preventDefault();
     this.setState({ productModal: false });
@@ -53,6 +65,12 @@ class Product extends Component {
       price,
       quantity
     } = this.state;
+
+    const {
+      isEditable,
+      isSelectable,
+    } = this.props;
+
     return (
       <tr>
         <td>
@@ -60,14 +78,25 @@ class Product extends Component {
         </td>
         <td>${price}</td><td>{quantity}</td>
         <td>
-          <a
-            className="btn btn-info"
-            onClick={() => this.setState({ productModal: true })}
-          >
-            <i className="glyphicon glyphicon-pencil" />
-          </a>
+          {isEditable && (
+            <a
+              className="btn btn-info"
+              onClick={() => this.setState({ productModal: true })}
+            >
+              <i className="glyphicon glyphicon-pencil" />
+            </a>
+          )}
+
+          {isSelectable && (
+            <a
+            className="btn btn-success"
+            onClick={this.handleSelected}
+            >
+            <i className="glyphicon glyphicon-ok" />
+            </a>
+          )}
         </td>
-        <Modal show={this.state.productModal}>
+        <Modal show={isEditable && this.state.productModal}>
           <Modal.Header>
             <Modal.Title>Edit Product</Modal.Title>
           </Modal.Header>
